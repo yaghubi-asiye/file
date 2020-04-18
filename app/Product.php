@@ -36,19 +36,17 @@ class Product extends Model
   }
 
 
-  // public static function search($data, $products){
-  //
-  //
-  //   if(sizeof($data) > 0){
-  //
-  //     if(array_key_exists('name', $data)){
-  //       $product = $products->where('name','like','%'.$data['name'].'%');
-  //     }
-  //
-  //   }
-  //   $product=$product->paginate(10);
-  //   // dd($product);
-  //   return $product;
-  //   // dd($data);
-  // }
+  public static function search($data, $products){
+    if(sizeof($data) > 0){
+
+      if(array_key_exists('name', $data)){
+        $product = $products->where('name','like','%'.$data['name'].'%');
+      }
+    }
+    if(!empty($products)){
+      $product = $product->paginate(10);
+    }
+    dd($product);
+    return $product;
+  }
 }

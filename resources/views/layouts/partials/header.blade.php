@@ -1,3 +1,9 @@
+<body class="goto-here">
+
+
+  <!-- <script type="text/javascript" src="/js/custom.js"></script> -->
+
+
 <!--header-->
 <div class="py-1 bg-primary">
     <div class="container">
@@ -41,7 +47,7 @@
                   <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">دسته‌های اصلی</a>
                   <div class="dropdown-menu" id="top-dropdown-menu" aria-labelledby="dropdown04">
                     <?php foreach ($categories as $category): ?>
-                      <a class="dropdown-item" href="shop.html">{{$category->fa_name}}</a>
+                      <a class="dropdown-item" href="{{ route('cat.show',['cat'=>$category->id]) }}">{{$category->fa_name}}</a>
 
                     <?php endforeach; ?>
 
@@ -52,7 +58,7 @@
                   <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">دسته‌های فرعی</a>
                   <div class="dropdown-menu" id="top-dropdown-menu" aria-labelledby="dropdown04">
                     <?php foreach ($cats as $cat): ?>
-                      <a class="dropdown-item" href="shop.html">{{$cat->fa_name}}</a>
+                      <a class="dropdown-item" href="{{ route('cat.show',['cat'=>$cat->id]) }}">{{$cat->fa_name}}</a>
 
                     <?php endforeach; ?>
 
@@ -63,31 +69,31 @@
                 <li class="nav-item"><a href="blog.html" class="nav-link">وبلاگ</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link">تماس با ما</a></li>
                 @guest
-                <li class="nav-item"><a class="nav-link" href="login">ورود/ثبت نام</a></li>
+                  <li class="nav-item"><a class="nav-link" href="login">ورود/ثبت نام</a></li>
                 @endguest
 
-                                       <li class="nav-item">
-                                        @auth
-                                    <a class="nav-link" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        خروج
-                                    </a>
+                 <li class="nav-item">
+                  @auth
+                    <a class="nav-link" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                        خروج
+                    </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                        @endauth
-</li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                  @endauth
+                </li>
 
                 <li class="nav-item cta cta-colored float-left"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
                 <li class="nav-item cta cta-colored float-left">
-                  <form class="form-inline nav-link" action="/action_page.php">
-                     <input class="form-control-sm  mr-sm-2" type="text" placeholder="محصول مورد نظر">
+                  <form class="form-inline nav-link">
+                    {{csrf_field()}}
+                     <input class="form-control-sm  mr-sm-2" type="text" name="name" placeholder="محصول مورد نظر">
                      <button class="btn btn-primary btn-sm" type="submit">جستجو</button>
                   </form>
                 </li>
-
             </ul>
         </div>
     </div>

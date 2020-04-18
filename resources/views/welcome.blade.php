@@ -79,7 +79,7 @@
                   <?php foreach ($favorites as $favorite): ?>
                     <div class="col-md-12 col-lg-6 ftco-animate">
                         <div class="product">
-                            <a href="#" class="img-prod"><img class="img-fluid" style="height:60vh; width:100%;"src="/{{$favorite->image}}" alt="{{$favorite->name}}">
+                            <a href="{{ url('pro/'.$favorite->id) }}" class="img-prod"><img class="img-fluid" style="height:60vh; width:100%;"src="/{{$favorite->image}}" alt="{{$favorite->name}}">
                               <?php if ($favorite->discount != 0): ?>
                                 <span class="status">{{$favorite->discount}}%</span>
                               <?php endif; ?>
@@ -87,7 +87,7 @@
                             </a>
 
                             <div class="text py-3 pb-4 px-3 text-center">
-                                <h3><a href="#">{{$favorite->name}}</a></h3>
+                                <h3><a href="{{ url('pro/'.$favorite->id) }}">{{$favorite->name}}</a></h3>
                                 <div class="d-flex">
                                     <div class="pricing">
                                         <p class="price">
@@ -146,7 +146,7 @@
           <?php foreach ($bestsellers as $bestseller): ?>
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" style="height:50vh; width:100vw;"src="/{{$bestseller->image}}" alt="{{$bestseller->name}}">
+                    <a href="{{ url('pro/'.$bestseller->id) }}" class="img-prod"><img class="img-fluid" style="height:50vh; width:100vw;"src="/{{$bestseller->image}}" alt="{{$bestseller->name}}">
                       <?php if ($bestseller->discount != 0): ?>
                         <span class="status">{{$bestseller->discount}}%</span>
                       <?php endif; ?>
@@ -154,7 +154,7 @@
                     </a>
 
                     <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">{{$bestseller->name}}</a></h3>
+                        <h3><a href="{{ url('pro/'.$bestseller->id) }}">{{$bestseller->name}}</a></h3>
                         <div class="d-flex">
                             <div class="pricing">
                                 <p class="price">
@@ -231,7 +231,7 @@
                     <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
                          style="background-image: url(/{{$category->image}});">
                         <div class="text px-3 py-1">
-                            <h2 class="mb-0"><a href="#">{{$category->fa_name}}</a></h2>
+                            <h2 class="mb-0"><a href="{{ route('cat.show',['cat'=>$category->id]) }}">{{$category->fa_name}}</a></h2>
                         </div>
                     </div>
                     </div>

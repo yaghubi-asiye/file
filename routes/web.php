@@ -21,7 +21,8 @@ Auth::routes();
 Route::group(['middleware'=>['auth','UserLevel']],function(){
   Route::get('/home', 'HomeController@index')->name('home');
 });
-
+Route::resource('cat', 'CategoryController');
+Route::resource('pro', 'ProductController');
 //=====================End Frontend Controllers====================
 
 //==================Start Backend Controllers======================
