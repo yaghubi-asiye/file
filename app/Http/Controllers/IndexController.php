@@ -25,7 +25,7 @@ class IndexController extends Controller
       }else{
         $product=Product::orderBy('id','DESC');
         $products = Product::search($request->all(), $product);
-        return view('site.search', compact('productس'));
+        return view('site.search', compact('products'));
       }
 
     }

@@ -23,6 +23,15 @@ Route::group(['middleware'=>['auth','UserLevel']],function(){
 });
 Route::resource('cat', 'CategoryController');
 Route::resource('pro', 'ProductController');
+
+//Ajax Routes Start
+Route::group([], function(){
+  Route::resource('/basket', 'BasketController')->middleware('auth');
+  Route::get('/product', 'BasketController@store');
+});
+
+
+
 //=====================End Frontend Controllers====================
 
 //==================Start Backend Controllers======================
@@ -39,5 +48,10 @@ Route::group(['namespace'=>'admin','middleware'=>['auth','UserLevel'],'prefix'=>
 });
 
 Route::get('/userpanel', 'admin\UserController@userPanel')->name('userpanel');
+Route::get('/useredit', 'admin\UserController@userEdit')->name('useredit');
+
 
 //==================End Backend Controllers========================
+
+
+//==================Ajax Routes End==========================

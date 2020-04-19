@@ -38,7 +38,6 @@ class Product extends Model
 
   public static function search($data, $products){
     if(sizeof($data) > 0){
-
       if(array_key_exists('name', $data)){
         $product = $products->where('name','like','%'.$data['name'].'%');
       }
@@ -46,7 +45,7 @@ class Product extends Model
     if(!empty($products)){
       $product = $product->paginate(10);
     }
-    dd($product);
+    // dd($product);
     return $product;
   }
 }

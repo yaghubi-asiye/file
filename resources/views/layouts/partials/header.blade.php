@@ -69,7 +69,7 @@
                 <li class="nav-item"><a href="blog.html" class="nav-link">وبلاگ</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link">تماس با ما</a></li>
                 @guest
-                  <li class="nav-item"><a class="nav-link" href="login">ورود/ثبت نام</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{route('login')}}">ورود/ثبت نام</a></li>
                 @endguest
 
                  <li class="nav-item">
@@ -86,7 +86,16 @@
                   @endauth
                 </li>
 
-                <li class="nav-item cta cta-colored float-left"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+                @auth
+                <?php if ($baskets != null && count($baskets) > 0): ?>
+                  <li class="nav-item cta cta-colored float-left">
+                    <a href="/basket" id="shop-cart" class="nav-link">
+                      <span class="icon-shopping_cart"></span>
+                      [{{count($baskets)}}]
+                    </a>
+                  </li>
+                <?php endif; ?>
+                @endauth
                 <li class="nav-item cta cta-colored float-left">
                   <form class="form-inline nav-link">
                     {{csrf_field()}}

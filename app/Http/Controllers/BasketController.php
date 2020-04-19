@@ -17,19 +17,8 @@ class BasketController extends Controller
      */
     public function index()
     {
-      $categories = Category::where('chId', 0)->get();
-      $bests = Product::orderBy('salesـnumber', 'desc')->get();
-      $specials = Product::where('special', 1)->get();
-      $newests = Product::orderBy('created_at', 'desc')->get();
-      $baskets = Basket::where('user_id',auth()->user()->id)->where('status', '0')->get();
-      $sum = 0;
-      if(count($baskets) > 0){
-        foreach ($baskets as $key => $basket) {
-          $sum += $basket->price * $basket->count;
-
-        }
-      }
-      return view('basket.index',compact('categories', 'bests', 'specials', 'newests', 'baskets', 'sum'));
+      $baskets=Basket::where('user_id', auth()->user()->id)->where('status', '0')->get();
+      return view('site.basket', compact('baskets'));
     }
 
     /**
@@ -40,7 +29,8 @@ class BasketController extends Controller
     public function create(Request $request)
     {
 
-    }
+      }
+
 
     /**
      * Store a newly created resource in storage.
@@ -50,8 +40,6 @@ class BasketController extends Controller
      */
     public function store(Request $request)
     {
-      return response()->json(['basket_create'=>'success','count'=>1]);
-      // dd($request->ajax());
       if($request->ajax()){
         $id=$request->input('id');
         // dd($id);
@@ -59,26 +47,21 @@ class BasketController extends Controller
         if(Basket::where([
           ['user_id','=',auth()->user()->id],
           ['product_id','=',$product->id],
-          ['status','=','0']])
-          ->get()->count() == 0){
-            if($product->count > 0){
-              Basket::create([
-                'user_id'=>auth()->user()->id,
-                'product_id'=>$product->id,
-                'price'=>$product->price,
-              ]);
-              $count = count(Basket::where('user_id','=',auth()->user()->id)->where('status','=','0')->get());
-              return response()->json(['basket_create'=>'success','count'=>$count]);
-            }
+          ['status','=','0']
+          ])->get()->count() == 0){
+            Basket::create([
+              'user_id'=>auth()->user()->id,
+              'product_id'=>$product->id,
+              'price'=>(1-$product->discount/100)*$product->price,
+            ]);
+            $count = count(Basket::where('user_id','=',auth()->user()->id)->where('status','=','0')->get());
+            return response()->json(['basket_create'=>'success','count'=>$count]);
           }
           else{
-            return response()->json(['count'=>'exceeded']);
+            return response()->json(['exists'=>'exists']);
           }
-
-          }
-
-      }
-    
+        }
+    }
 
     /**
      * Display the specified resource.
@@ -122,6 +105,7 @@ class BasketController extends Controller
      */
     public function destroy(Basket $basket)
     {
-        //
+      $basket->delete();
+      return redirect(route('basket.index'));
     }
 }

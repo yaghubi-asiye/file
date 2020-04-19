@@ -8,7 +8,7 @@
 </div>
 
 
-<script src="/js/jquery.min.js"></script>
+
 <script src="/js/jquery-migrate-3.0.1.min.js"></script>
 <script src="/js/popper.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
@@ -25,3 +25,28 @@
 <script src="/js/google-map.js"></script>
 <script src="/js/main.js"></script>
 <script type="text/javascript" src="/js/custom.js"></script>
+<script>
+  $(document).ready(function(){
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $('.add-to-cart').on('click', function(){
+      var id=$(this).attr('data-id');
+      $.ajax({
+        url:'/basket',
+        type:'post',
+        dataType:'json',
+        data:{id:id},
+        success:function(data){
+          if(data.basket_create == 'success'){
+            alert('محصول مورد نظر با موفقیت به سبد خرید اضافه شد');
+          }else if (data.exists == 'exists') {
+            alert('محصول مورد نظر قبلا در سبد خرید شما اضافه شده‌است');
+          }
+        }
+      });
+    });
+  });
+</script>

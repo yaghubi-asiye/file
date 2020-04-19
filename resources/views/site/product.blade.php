@@ -48,17 +48,12 @@
                         <span class="price-dc text-danger"><small>تومان</small> <br></span>
                       </del>
                     </s>
-
-
-
-
-                        <span class="price-sale ">{{(1-($pro->discount)/100)*$pro->price}}</span>
-                        <span class="price-sale"> تومان</span>
-
+                    <span class="price-sale ">{{(1-($pro->discount)/100)*$pro->price}}</span>
+                    <span class="price-sale"> تومان</span>
                   </p>
                 </div>
               </div>
-            </div>
+          </div>
           <?php else: ?>
             <div class="text py-3 pb-4 px-3 text-center">
                 <div class="d-flex">
@@ -106,7 +101,7 @@
             <p style="color: #000;">موجودی 600 کیلوگرم</p>
           </div>
         </div>
-        <p><a href="cart.html" class="btn btn-black py-3 px-5">اضافه به سبد خرید </a></p>
+        <p><a class="btn btn-black py-3 px-5 add-to-cart" data-id="{{$pro->id}}">اضافه به سبد خرید </a></p>
       </div>
     </div>
   </div>

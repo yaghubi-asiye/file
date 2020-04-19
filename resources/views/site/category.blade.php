@@ -13,7 +13,7 @@
 </div>
 
 <section class="ftco-section">
-  <div class="container">
+  <div class="container" id="latest_category">
     <div class="justify-content-center">
       <div class="col-md-10 mb-5 text-center " >
         <ul class="product-category" id="sub-cat">
@@ -27,7 +27,7 @@
         </ul>
       </div>
     </div>
-    <div class="" id="latest_category">
+    <div class="" >
 
       <?php $i = 1; ?>
       <div class="row tab_content" id="tab-cat{{$i}}">

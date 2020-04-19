@@ -95,6 +95,12 @@ class UserController extends AdminController
     }
 
     public function userPanel(){
-      return view('admin.userpanel.userpanel');
+      return view('admin.userpanel.index');
     }
+
+    public function userEdit(User $user)
+    {
+      return view('admin.userpanel.edit', ['user' => $user]);
+    }
+
 }

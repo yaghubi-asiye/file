@@ -66,17 +66,19 @@ class CategoryController extends Controller
         return view('site.category' ,compact('pros','cat', 'c'));
       }else{
         if($cat->chid == 0){
-          $pros=new \stdClass();
+          $pros = (object)[];
           foreach($c as $item)
           {
             $products = Product::where('category_id',$item->id);
             $pros = (object) array_merge((array) $pros, (array) $products);
-            dd($pros);
+            // dd($pros);
           }
         }else{
           $pros = Product::where('category_id', $cat->id);
         }
+        // dd($pros);
         $products = Product::search($request->all(), $pros);
+        return view('site.search', compact('products'));
       }
 
     }
