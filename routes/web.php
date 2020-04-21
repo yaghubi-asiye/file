@@ -38,7 +38,7 @@ Route::group([], function(){
 //=====================End Frontend Controllers====================
 
 //==================Start Backend Controllers======================
-Route::group(['namespace'=>'admin','middleware'=>['auth'],'prefix'=>'/admin'],function(){
+Route::group(['namespace'=>'admin','middleware'=>['auth','UserLevel'],'prefix'=>'/admin'],function(){
   Route::resource('/product', 'ProductController');
   Route::resource('/role', 'RoleController');
   Route::resource('/user', 'UserController');
