@@ -3,16 +3,27 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use willvincent\Rateable\Rateable;
 // use Laravel\Scout\Searchable;
 
 class Product extends Model
 {
+  use Rateable;
   // use Searchable;
   protected $fillable = [
       'name', 'producer_id', 'category_id', 'type_id', 'price', 'status', 'special',
       'sales_number', 'discount', 'image', 'file', 'body', 'download_number', 'click_number',
   ];
+//======= morph many to one ==============
+  public function comments()
+  {
+      return $this->morphMany('App\Comment',"commentable");
+  }
 
+  public function tags()
+  {
+      return $this->morphToMany(Tag::class,"taggable");
+  }
   public function producer(){
       return $this->belongsTo(Producer::class);
   }
@@ -25,12 +36,7 @@ class Product extends Model
   public function basket(){
       return $this->hasMany(Basket::class);
   }
-  public function comment(){
-      return $this->hasMany(Comment::class);
-  }
-  public function rating(){
-      return $this->hasMany(Rating::class);
-  }
+ 
   public function factor(){
       return $this->belongsToMany(Factor::class);
   }

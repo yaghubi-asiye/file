@@ -100,6 +100,19 @@
         </ul>
       </li>
 
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-dashboard"></i> <span>مدیریت برچسب ها</span>
+          <span class="pull-left-container">
+            <i class="fa fa-angle-right pull-left"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="{{route('tag.index')}}"><i class="fa fa-circle-o"></i>لیست برچسب ها</a></li>
+            <li><a href="{{route('tag.create')}}"><i class="fa fa-circle-o"></i>افزودن برچسب جدید</a></li>
+        </ul>
+      </li>
+
 
 
     </ul>

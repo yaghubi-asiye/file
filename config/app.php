@@ -165,6 +165,8 @@ return [
         /*
          * Package Service Providers...
          */
+        //===========ADD EXTENTION ========================
+        willvincent\Rateable\RateableServiceProvider::class,
 
         /*
          * Application Service Providers...

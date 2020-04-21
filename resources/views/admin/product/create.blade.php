@@ -44,6 +44,15 @@
           </div>
 
           <div class="form-group">
+            <label for="exampleInputPassword1">برچسب محصول</label>
+             <select class="form-control" name="tag_id[]" multiple>
+               <?php foreach ($tags as $val): ?>
+                 <option value="{{$val->id}}">{{$val->name}}</option>
+               <?php endforeach; ?>
+             </select>
+          </div>
+
+          <div class="form-group">
             <label for="exampleInputFile">تصویر محصول</label>
             <input name="image" type="file" id="exampleInputFile">
           </div>

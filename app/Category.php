@@ -12,6 +12,11 @@ class Category extends Model
       'chid', 'fa_name', 'en_name','image',
   ];
 
+  public function tags()
+  {
+      return $this->morphToMany(Tag::class,"taggable");
+  }
+
   public function product(){
     return $this->hasMany(Product::class);
   }

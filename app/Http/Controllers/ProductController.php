@@ -47,10 +47,13 @@ class ProductController extends Controller
      */
     public function show(Product $pro)
     {
-      // dd($pro);
-         //=======variabel header and aside ===========================
-
-         return view('site.product',compact('pro'));
+      
+        $tags = $pro->tags()->get();
+        foreach($tags as $val){
+            $mortabet[] = $val->products()->get();
+        }
+               
+         return view('site.product',compact('pro','mortabet'));
     }
 
     /**

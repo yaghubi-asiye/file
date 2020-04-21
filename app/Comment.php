@@ -6,15 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-  protected $fillable = [
-      'user_id', 'product_id', 'body', 'verified',
-  ];
-
-  public function product(){
-    return $this->belongsTo(Product::class);
-  }
-
-  public function user(){
-    return $this->belongsTo(User::class);
-  }
+    protected $fillable = [
+      'commentable_id', 'commentable_type', 'user_id', 'comment', 'status',
+    ];
+    //======= morph many to one ==============
+    public function commentable()
+    {
+        return $this->morphTo();
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

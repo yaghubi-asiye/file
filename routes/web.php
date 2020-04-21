@@ -23,6 +23,9 @@ Route::group(['middleware'=>['auth','UserLevel']],function(){
 });
 Route::resource('cat', 'CategoryController');
 Route::resource('pro', 'ProductController');
+Route::resource('commen','CommentController');  
+Route::resource('contact','ContactController');  
+
 
 //Ajax Routes Start
 Route::group([], function(){
@@ -35,7 +38,7 @@ Route::group([], function(){
 //=====================End Frontend Controllers====================
 
 //==================Start Backend Controllers======================
-Route::group(['namespace'=>'admin','middleware'=>['auth','UserLevel'],'prefix'=>'/admin'],function(){
+Route::group(['namespace'=>'admin','middleware'=>['auth'],'prefix'=>'/admin'],function(){
   Route::resource('/product', 'ProductController');
   Route::resource('/role', 'RoleController');
   Route::resource('/user', 'UserController');
@@ -45,6 +48,9 @@ Route::group(['namespace'=>'admin','middleware'=>['auth','UserLevel'],'prefix'=>
   Route::resource('/slider', 'SliderController');
   Route::resource('/filter', 'FilterController');
   Route::resource('/sliderparent', 'SliderparentController');
+
+  Route::resource('/tag', 'TagController');
+
 });
 
 Route::get('/userpanel', 'admin\UserController@userPanel')->name('userpanel');

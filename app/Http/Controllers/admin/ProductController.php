@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Product;
 use App\Producer;
 use App\Category;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class ProductController extends AdminController
@@ -28,9 +29,10 @@ class ProductController extends AdminController
      */
     public function create()
     {
+      $tags = Tag::get();
       $categories = Category::where('chId','!=',0)->get();
       $producers = Producer::all();
-      return view('admin.product.create', compact('producers','categories'));
+      return view('admin.product.create', compact('producers','categories','tags'));
     }
 
     /**
@@ -69,6 +71,8 @@ class ProductController extends AdminController
         'image'=>$image,
         'file'=>$file3,
       ]);
+      
+      $product->tags()->sync($request->input('tag_id'));
       return redirect(route('product.index'));
     }
 
