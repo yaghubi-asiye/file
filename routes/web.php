@@ -1,6 +1,12 @@
 <?php
 
+
+// use Illuminate\Support\Facades\Mail;
+// use App\Mail\SendEmailMailable;
+// use Illuminate\Routing\Route;
+// use Illuminate\Contracts\Bus\Dispatcher;
 /*
+
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -13,8 +19,27 @@
 
 
 
+
+
+
+
+
+
+
+
 //=====================Start Frontend Controllers==================
-Route::get('/', 'IndexController@index');
+
+Route::get('/sendmail',function(){
+
+  Mail::to('yaghubi1398@gmail.com')->send(new SendEmailMailable());
+  // $this->view('emails.email',['title'=>'سلام','content'=>'خوش امدید']);
+  // dispatch(new App\Jobs\SendEmailJob);
+  return "your email send";
+});
+
+
+
+Route::get('/', 'IndexController@index')->name('index');
 Auth::routes();
 
 

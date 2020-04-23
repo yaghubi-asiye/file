@@ -127,4 +127,10 @@ class CommentController extends Controller
     {
         //
     }
+
+    public function restapi()
+    {
+        $comments = Comment::all();
+        return response()->json($comments,200);
+    }
 }
