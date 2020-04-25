@@ -22,6 +22,7 @@
 
 
                     @foreach ($posts as $item)
+                    <?php  $comment = $item->comments->where('status','0'); ?>
                     <div class="col-md-12 d-flex ftco-animate">
                         <div class="blog-entry align-self-stretch d-md-flex">
                             <a href="{{route('post.show',['post'=>$item->id])}}" class="block-20" style="background-image: url('{{$item->image}}');">
@@ -30,6 +31,7 @@
                                 <div class="meta mb-3">
                                     <div><a href="#">{{ Verta::instance($item->created_at)->format('%B %d، %Y') }}</a></div>
                                     <div><a href="#">{{$item->user->name}}</a></div>
+                                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span> {{count($comment)}}</a></div>
                                 </div>
                                 <h3 class="heading"><a href="{{route('post.show',['post'=>$item->id])}}">
                                {{$item->title}}

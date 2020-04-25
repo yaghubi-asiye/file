@@ -26,7 +26,9 @@ Route::resource('cat', 'CategoryController');
 Route::resource('pro', 'ProductController');
 Route::resource('commen','CommentController');  
 Route::resource('contact','ContactController');  
-Route::resource('post','PostController');  
+Route::resource('post','PostController'); 
+Route::resource('comment-post','CommentpostController');  
+
 
 
 

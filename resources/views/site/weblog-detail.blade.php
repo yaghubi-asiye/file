@@ -2,6 +2,21 @@
 
 @section('content')
 
+{{-- ========================flash message ========================== --}}
+@if ($message = Session::get('success'))
+<div class="alert alert-success alert-block">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <strong>{{ $message }}</strong>
+</div>
+@endif
+@if ($errors->any()))
+@foreach ($errors->all() as $item)
+<div class="alert alert-danger alert-block">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <strong>{{ $item }}</strong>
+</div>
+@endforeach
+@endif
 
 <section class="ftco-section ftco-degree-bg">
     <div class="container">
@@ -29,8 +44,66 @@
                             {{ Verta::instance($post->created_at)->format('%B %d، %Y') }}
                             {{ substr(strip_tags($post->description),0,200) }}{{strlen($post->description)>300 ? "..." : ""}}
                         </p>
+                        <div class="rating">
+                            <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5"
+                                data-step="0.1" value="{{ $post->averageRating }}" data-size="s" disabled="">
+
+                        </div>
                     </div>
                 </div>
+
+                 <?php  $comment = $post->comments->where('status','0'); ?>
+                <div class="pt-5 mt-5">
+                    <h3 class="mb-5">نظر سنجی</h3>
+                    <ul class="comment-list">
+                        @foreach ($comment as $item)
+
+                        <li class="comment">
+                            <div class="vcard bio">
+                                <img src="/pics/person_1.jpg" alt="Image placeholder">
+                            </div>
+                            <div class="comment-body">
+                                <h3>{{$item->user->name}}</h3>
+                                <div class="meta"> {{ Verta::instance($post->created_at)->format('%B %d، %Y') }}</div>
+                                <p>
+                                    {{ $item->comment }}
+                                </p>
+                                
+                                <p><a href="#" class="reply">پاسخ</a></p>
+                            </div>
+                        </li>
+                        @endforeach
+                      
+
+                    </ul>
+                    <!-- END comment-list -->
+                    <div class="comment-form-wrap pt-5">
+                        <h3 class="mb-5">تجربه خود را با ما در میان بگذارید</h3>
+                        @if(Auth::check())
+                        <form action="{{route('comment-post.store') }}" method="POST"class="p-5 bg-light">
+                            @csrf
+                            
+                            <div class="form-group">
+                                <label for="message">پیام</label>
+                                <textarea name="comment" id="message" cols="20" rows="5" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">رتبه</label>
+                                <input id="input-1" name="rate" class="rating rating-loading" data-min="0" data-max="5" data-step="1"
+                                  value="" data-size="xs">
+                              </div>
+                
+                              <input type="text" value="{{ $post->id }}" name="post_id" hidden>
+                              <input type="text" value="{{ auth()->user()->id }}" name="user_id" hidden>
+                            <div class="form-group">
+                                <input type="submit" value="ارسال نظر" class="btn py-3 px-4 btn-primary">
+                            </div>
+                        </form>
+                        @else
+                        <h2 class="text-danger">برای ثبت نظرخودابتدالاگین کنید</h2>
+                        @endif
+                    </div>
+                </div>  
               
             </div> <!-- .col-md-8 -->
 

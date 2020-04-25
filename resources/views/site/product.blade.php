@@ -40,18 +40,13 @@
         <h3>{{$pro->name}}</h3>
         <div class="rating d-flex">
           <p class="text-left mr-4">
-            <a href="#" class="mr-2">5.0</a>
-            <a href="#"><span class="ion-ios-star-outline"></span></a>
-            <a href="#"><span class="ion-ios-star-outline"></span></a>
-            <a href="#"><span class="ion-ios-star-outline"></span></a>
-            <a href="#"><span class="ion-ios-star-outline"></span></a>
-            <a href="#"><span class="ion-ios-star-outline"></span></a>
+              <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5"
+                data-step="0.1" value="{{ $pro->averageRating }}" data-size="s" disabled="">
+
           </p>
-          <p class="text-left mr-4">
-            <a href="#" class="mr-2" style="color: #000;">100 <span style="color: #bbb;">رای</span></a>
-          </p>
+          
           <p class="text-left">
-            <a href="#" class="mr-2" style="color: #000;">500 <span style="color: #bbb;">فروخته شده</span></a>
+            <a href="#" class="mr-2" style="color: #000;">{{$pro->sales_number}} <span style="color: #bbb;">فروخته شده</span></a>
           </p>
         </div>
         <?php if ($pro->discount != 0): ?>
@@ -139,12 +134,7 @@
                   {{ $item->comment }}
                 </p>
 
-                <div class="rating">
-                  <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5"
-                    data-step="0.1" value="{{ $pro->UseraverageRating }}" data-size="s" disabled="">
-
-                </div>
-
+               
               </td>
             </tr>
           </tbody>
