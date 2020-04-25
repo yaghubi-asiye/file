@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 21, 2020 at 04:54 AM
+-- Generation Time: Apr 25, 2020 at 11:23 AM
 -- Server version: 5.7.28-0ubuntu0.19.04.2
 -- PHP Version: 7.4.2
 
@@ -130,7 +130,8 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`id`, `name`, `email`, `subject`, `content`, `created_at`, `updated_at`) VALUES
-(1, 'asiye', 'asiye@gmail.com', 'پشتیبانی', 'پشتیبانیپشتیبانیپشتیبانیپشتیبانیپشتیبانیپشتیبانی', '2020-04-20 06:35:39', '2020-04-20 06:35:39');
+(1, 'asiye', 'asiye@gmail.com', 'پشتیبانی', 'پشتیبانیپشتیبانیپشتیبانیپشتیبانیپشتیبانیپشتیبانی', '2020-04-20 06:35:39', '2020-04-20 06:35:39'),
+(2, 'asiye', 'asiye@gmail.com', 'پشتیبانی', 'پشتیبانیپشتیبانیپشتیبانیپشتیبانیپشتیبانیپشتیبانیپشتیبانیپشتیبانی', '2020-04-21 00:50:21', '2020-04-21 00:50:21');
 
 -- --------------------------------------------------------
 
@@ -173,6 +174,14 @@ CREATE TABLE `failed_jobs` (
   `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `failed_jobs`
+--
+
+INSERT INTO `failed_jobs` (`id`, `connection`, `queue`, `payload`, `exception`, `failed_at`) VALUES
+(1, 'database', 'default', '{\"displayName\":\"App\\\\Jobs\\\\SendEmailJob\",\"job\":\"Illuminate\\\\Queue\\\\CallQueuedHandler@call\",\"maxTries\":null,\"delay\":null,\"timeout\":null,\"timeoutAt\":null,\"data\":{\"commandName\":\"App\\\\Jobs\\\\SendEmailJob\",\"command\":\"O:21:\\\"App\\\\Jobs\\\\SendEmailJob\\\":8:{s:6:\\\"\\u0000*\\u0000job\\\";N;s:10:\\\"connection\\\";N;s:5:\\\"queue\\\";N;s:15:\\\"chainConnection\\\";N;s:10:\\\"chainQueue\\\";N;s:5:\\\"delay\\\";N;s:10:\\\"middleware\\\";a:0:{}s:7:\\\"chained\\\";a:0:{}}\"}}', 'Swift_TransportException: Cannot send message without a sender address in /var/www/html/group4/fileshoppinglaravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/AbstractSmtpTransport.php:195\nStack trace:\n#0 /var/www/html/group4/fileshoppinglaravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mailer.php(71): Swift_Transport_AbstractSmtpTransport->send()\n#1 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Mail/Mailer.php(486): Swift_Mailer->send()\n#2 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Mail/Mailer.php(261): Illuminate\\Mail\\Mailer->sendSwiftMessage()\n#3 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Mail/Mailable.php(159): Illuminate\\Mail\\Mailer->send()\n#4 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Support/Traits/Localizable.php(19): Illuminate\\Mail\\Mailable->Illuminate\\Mail\\{closure}()\n#5 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Mail/Mailable.php(160): Illuminate\\Mail\\Mailable->withLocale()\n#6 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Mail/Mailer.php(277): Illuminate\\Mail\\Mailable->send()\n#7 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Mail/Mailer.php(231): Illuminate\\Mail\\Mailer->sendMailable()\n#8 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Mail/PendingMail.php(122): Illuminate\\Mail\\Mailer->send()\n#9 /var/www/html/group4/fileshoppinglaravel/app/Jobs/SendEmailJob.php(35): Illuminate\\Mail\\PendingMail->send()\n#10 [internal function]: App\\Jobs\\SendEmailJob->handle()\n#11 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(32): call_user_func_array()\n#12 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Container/Util.php(36): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()\n#13 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(90): Illuminate\\Container\\Util::unwrapIfClosure()\n#14 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod()\n#15 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Container/Container.php(590): Illuminate\\Container\\BoundMethod::call()\n#16 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Bus/Dispatcher.php(94): Illuminate\\Container\\Container->call()\n#17 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(130): Illuminate\\Bus\\Dispatcher->Illuminate\\Bus\\{closure}()\n#18 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(105): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()\n#19 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Bus/Dispatcher.php(98): Illuminate\\Pipeline\\Pipeline->then()\n#20 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php(83): Illuminate\\Bus\\Dispatcher->dispatchNow()\n#21 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(130): Illuminate\\Queue\\CallQueuedHandler->Illuminate\\Queue\\{closure}()\n#22 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(105): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()\n#23 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php(85): Illuminate\\Pipeline\\Pipeline->then()\n#24 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php(59): Illuminate\\Queue\\CallQueuedHandler->dispatchThroughMiddleware()\n#25 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php(88): Illuminate\\Queue\\CallQueuedHandler->call()\n#26 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php(368): Illuminate\\Queue\\Jobs\\Job->fire()\n#27 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php(314): Illuminate\\Queue\\Worker->process()\n#28 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php(134): Illuminate\\Queue\\Worker->runJob()\n#29 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php(112): Illuminate\\Queue\\Worker->daemon()\n#30 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php(96): Illuminate\\Queue\\Console\\WorkCommand->runWorker()\n#31 [internal function]: Illuminate\\Queue\\Console\\WorkCommand->handle()\n#32 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(32): call_user_func_array()\n#33 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Container/Util.php(36): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()\n#34 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(90): Illuminate\\Container\\Util::unwrapIfClosure()\n#35 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod()\n#36 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Container/Container.php(590): Illuminate\\Container\\BoundMethod::call()\n#37 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Console/Command.php(134): Illuminate\\Container\\Container->call()\n#38 /var/www/html/group4/fileshoppinglaravel/vendor/symfony/console/Command/Command.php(255): Illuminate\\Console\\Command->execute()\n#39 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Console/Command.php(121): Symfony\\Component\\Console\\Command\\Command->run()\n#40 /var/www/html/group4/fileshoppinglaravel/vendor/symfony/console/Application.php(1001): Illuminate\\Console\\Command->run()\n#41 /var/www/html/group4/fileshoppinglaravel/vendor/symfony/console/Application.php(271): Symfony\\Component\\Console\\Application->doRunCommand()\n#42 /var/www/html/group4/fileshoppinglaravel/vendor/symfony/console/Application.php(147): Symfony\\Component\\Console\\Application->doRun()\n#43 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Console/Application.php(93): Symfony\\Component\\Console\\Application->run()\n#44 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(131): Illuminate\\Console\\Application->run()\n#45 /var/www/html/group4/fileshoppinglaravel/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()\n#46 {main}', '2020-04-23 01:35:46'),
+(2, 'database', 'default', '{\"displayName\":\"App\\\\Jobs\\\\SendEmailJob\",\"job\":\"Illuminate\\\\Queue\\\\CallQueuedHandler@call\",\"maxTries\":null,\"delay\":null,\"timeout\":null,\"timeoutAt\":null,\"data\":{\"commandName\":\"App\\\\Jobs\\\\SendEmailJob\",\"command\":\"O:21:\\\"App\\\\Jobs\\\\SendEmailJob\\\":8:{s:6:\\\"\\u0000*\\u0000job\\\";N;s:10:\\\"connection\\\";N;s:5:\\\"queue\\\";N;s:15:\\\"chainConnection\\\";N;s:10:\\\"chainQueue\\\";N;s:5:\\\"delay\\\";N;s:10:\\\"middleware\\\";a:0:{}s:7:\\\"chained\\\";a:0:{}}\"}}', 'Swift_TransportException: Cannot send message without a sender address in /var/www/html/group4/fileshoppinglaravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/AbstractSmtpTransport.php:195\nStack trace:\n#0 /var/www/html/group4/fileshoppinglaravel/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mailer.php(71): Swift_Transport_AbstractSmtpTransport->send()\n#1 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Mail/Mailer.php(486): Swift_Mailer->send()\n#2 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Mail/Mailer.php(261): Illuminate\\Mail\\Mailer->sendSwiftMessage()\n#3 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Mail/Mailable.php(159): Illuminate\\Mail\\Mailer->send()\n#4 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Support/Traits/Localizable.php(19): Illuminate\\Mail\\Mailable->Illuminate\\Mail\\{closure}()\n#5 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Mail/Mailable.php(160): Illuminate\\Mail\\Mailable->withLocale()\n#6 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Mail/Mailer.php(277): Illuminate\\Mail\\Mailable->send()\n#7 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Mail/Mailer.php(231): Illuminate\\Mail\\Mailer->sendMailable()\n#8 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Mail/PendingMail.php(122): Illuminate\\Mail\\Mailer->send()\n#9 /var/www/html/group4/fileshoppinglaravel/app/Jobs/SendEmailJob.php(35): Illuminate\\Mail\\PendingMail->send()\n#10 [internal function]: App\\Jobs\\SendEmailJob->handle()\n#11 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(32): call_user_func_array()\n#12 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Container/Util.php(36): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()\n#13 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(90): Illuminate\\Container\\Util::unwrapIfClosure()\n#14 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod()\n#15 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Container/Container.php(590): Illuminate\\Container\\BoundMethod::call()\n#16 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Bus/Dispatcher.php(94): Illuminate\\Container\\Container->call()\n#17 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(130): Illuminate\\Bus\\Dispatcher->Illuminate\\Bus\\{closure}()\n#18 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(105): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()\n#19 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Bus/Dispatcher.php(98): Illuminate\\Pipeline\\Pipeline->then()\n#20 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php(83): Illuminate\\Bus\\Dispatcher->dispatchNow()\n#21 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(130): Illuminate\\Queue\\CallQueuedHandler->Illuminate\\Queue\\{closure}()\n#22 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(105): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()\n#23 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php(85): Illuminate\\Pipeline\\Pipeline->then()\n#24 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php(59): Illuminate\\Queue\\CallQueuedHandler->dispatchThroughMiddleware()\n#25 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php(88): Illuminate\\Queue\\CallQueuedHandler->call()\n#26 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php(368): Illuminate\\Queue\\Jobs\\Job->fire()\n#27 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php(314): Illuminate\\Queue\\Worker->process()\n#28 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php(134): Illuminate\\Queue\\Worker->runJob()\n#29 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php(112): Illuminate\\Queue\\Worker->daemon()\n#30 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php(96): Illuminate\\Queue\\Console\\WorkCommand->runWorker()\n#31 [internal function]: Illuminate\\Queue\\Console\\WorkCommand->handle()\n#32 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(32): call_user_func_array()\n#33 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Container/Util.php(36): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()\n#34 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(90): Illuminate\\Container\\Util::unwrapIfClosure()\n#35 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod()\n#36 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Container/Container.php(590): Illuminate\\Container\\BoundMethod::call()\n#37 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Console/Command.php(134): Illuminate\\Container\\Container->call()\n#38 /var/www/html/group4/fileshoppinglaravel/vendor/symfony/console/Command/Command.php(255): Illuminate\\Console\\Command->execute()\n#39 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Console/Command.php(121): Symfony\\Component\\Console\\Command\\Command->run()\n#40 /var/www/html/group4/fileshoppinglaravel/vendor/symfony/console/Application.php(1001): Illuminate\\Console\\Command->run()\n#41 /var/www/html/group4/fileshoppinglaravel/vendor/symfony/console/Application.php(271): Symfony\\Component\\Console\\Application->doRunCommand()\n#42 /var/www/html/group4/fileshoppinglaravel/vendor/symfony/console/Application.php(147): Symfony\\Component\\Console\\Application->doRun()\n#43 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Console/Application.php(93): Symfony\\Component\\Console\\Application->run()\n#44 /var/www/html/group4/fileshoppinglaravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(131): Illuminate\\Console\\Application->run()\n#45 /var/www/html/group4/fileshoppinglaravel/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()\n#46 {main}', '2020-04-23 01:40:13');
+
 -- --------------------------------------------------------
 
 --
@@ -210,6 +219,22 @@ INSERT INTO `genders` (`id`, `fa_name`, `en_name`, `created_at`, `updated_at`) V
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `jobs`
+--
+
+CREATE TABLE `jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `queue` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attempts` tinyint(3) UNSIGNED NOT NULL,
+  `reserved_at` int(10) UNSIGNED DEFAULT NULL,
+  `available_at` int(10) UNSIGNED NOT NULL,
+  `created_at` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -234,7 +259,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (8, '2020_04_20_093759_create_ratings_table', 6),
 (9, '2020_04_20_104206_create_contacts_table', 7),
 (10, '2020_04_20_114253_create_tags_table', 8),
-(11, '2020_04_20_114822_create_taggables_table', 9);
+(11, '2020_04_20_114822_create_taggables_table', 9),
+(14, '2020_04_23_051529_create_jobs_table', 10),
+(15, '2020_04_23_051551_create_failed_jobs_table', 10),
+(16, '2020_04_23_094325_create_posts_table', 11),
+(17, '2020_04_23_095507_create_photos_table', 12);
 
 -- --------------------------------------------------------
 
@@ -301,6 +330,45 @@ CREATE TABLE `permission_role` (
 
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (1, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `photos`
+--
+
+CREATE TABLE `photos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `path` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `photoable_id` int(11) NOT NULL,
+  `photoable_type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `title` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `user_id`, `title`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, ' چگونه یک سایت تازه تاسیس را تبدیل به یک برند تجاری کنیم؟', 'یکی از دغدغه های مهم افرادی که بازاریابی آنلاین را آغاز کرده اند و می خواهند کسب و کار اینترنتی خودشان را داشته باشند ، مقوله ی برند سازی و بازاریابی است. در واقع می توان چنین گفت که وقتی شما یک کسب و کار آنلاین و بازاریابی اینترنتی را آغاز می کنید ، نیاز به آن دارید که دیده شوید و این دیده شدن برای شما مهم تر از هر چیزی است.\r\n\r\nاما برای دیده شدن و رسیدن به نقطه ای که از کسب و کار اینترنتی تان سود کسب کنید ، نیاز به آن دارد که به یک مقوله ی اساسی و حیاتی در بازار یابی آنلاین و کسب و کار اینترنتی توجه داشته باشید و از آن بعنوان یک ابزار پیش نیاز برای رشد استفاده کنید. این مقوله ی اساسی و حیاتی ، برند سازی است.\r\n\r\nبرند سازی به جرئت پلکان صعود یک کسب و کار اینترنتی و بازار یابی آنلاین در رسیدن به سود و فروش بالا است. اما خیلی مسئله ی مهمی است که شما بدانید دقیقا چطور برند سازی کنید و یا اینکه چگونه سایت تازه تاسیس خودتان را به تبدیل به یکی از قطب های بازار در اینترنت کنید.\r\n\r\nپاسخ های بسیاری برای این سوال وجود دارد که هر کدام از جنبه های مختلف به این قضیه نگاه کرده اند. اما نیازی به نگرانی نیست. ما در این مقاله جامع ترین شیوه ی برند سازی و بازاریابی فراگیر برای سایت های تازه تاسیس و در یک نگاه کلی تمامی سایت های کسب و کار اینترنتی را به شما آموزش خواهیم دید.\r\n\r\nما در این مقاله سعی می کنیم از جامع ترین شیوه های برندسازی و بازاریابی اینترنتی برای رشد کسب و کارتان استفاده کنیم ، تا که بتوانید به راحتی هر چه تمام تر و در مدت زمانی کوتاه خودتان را به نقطه ی فروش برسانید و تبدیل به یک برند تجاری آنلاین شوید.\r\n\r\nبازاریابی فراگیر چیست؟\r\nخیلی از آن هایی که تازه یک سایت کسب و کار اینترنتی را تاسیس می کند ، با این تفکر روبرو هستند که : ” من که هیچ بازدید کننده ای ندارم ، من که هیچ تبلیغی هم نکرده ام ، من حتی کسب و کارم یک فالور در شبکه های مجازی هم ندارد.\r\n\r\nپس من چگونه خودم را به یک سود عالی برسانم و محصولاتم را بفروشم؟ ”  .\r\n\r\nپاسخ ما به این تفکر ، ذکر این نکته است که شما باید با استفاده از بازاریابی فراگیر این کار را به ثمر برسانید و تنها شیوه ای که شما می توانید از نقطه ی صفر کسب و کار اینترنتی به قله ی سود دهی برسید ، این است که از بازاریابی فراگیر استفاده کنید.\r\n\r\nحال سوال اساسی اینجاست که ” بازاریابی فراگیر چیست؟ “.\r\n\r\nراستش را بخواهید تا به امروز برای بازاریابی فراگیر تعاریف زیادی ارائه شده است وهیچ تعریف جامعی نیز وجود ندارد که همه ی متخصصین این حوزه بر روی آن توافق کرده باشند ،\r\n\r\nاما می توان به زبان ساده جنین گفت که :  بازاریابی فراگیر ، به شیوه ای از بازاریابی گفته می شود که شما در طی آن با طراحی یک پروسه ی بازاریابی کاری می کنید که دیگران محصولات شما را برای شما به اشتراک بگذارند. “.\r\n\r\nدر واقع اگر مروری به شیوه های بازاریابی داشته باشید ، می بینید که بازاریابی در ابتدا به شیوه ی سنتی بوده است. یعنی آنکه شما باید هزینه ای پرداخت می کردید و بر اساس یک پیام جمعی ، محصولات خودتان را تبلیغ می کردید و برای آن بازاریابی می کردید. یکی از نمونه های رایج در حوزه ی بازاریابی سنتی ، استفاده از تبلیغات تلویزیونی بوده است.\r\n\r\nاما امروزه با گسترش شیوه های بازاریابی خصوصا در حوزه ی کسب و کارهای اینترنتی ما دیگر نیاز به آن نداریم که هزینه ای کنیم و یا اینکه یک پیام ثابت را از طریق تلویزیون و یا یکی از مدیوم های تبلیغاتی ، بازاریابی کنیم بلکه امروز شیوه ای داریم به نام بازاریابی فراگیر که شما باید در طی آن ، محصولات خودتان را روی زبان ها بیندازید و این زبان ها باشند که برای شما تبلیغ کنند.\r\n\r\nشاید این قضیه در تئوری و در بیان کمی ساده باشد ، اما به عمل که می رسیم ، می بینیم که بسیاری از محصولات ، هیچ جایی برای تبلیغات فراگیر و بازاریابی فراگیر ندارند و آنجاست که یک مقدار کار ما بنطر سخت می آید.\r\n\r\nاما ما می خواهیم به شما بگوییم که این کار هیچ سختی ندارد ، بلکه شما باید تنها یک رویه ی درست برای آن اتخاذ کنید و ببینید که چطور می توان از بازاریابی فراگیر بهترین نتیجه را گرفت.\r\n\r\nبرای این کار شما نیاز دارید که یک محتوای فراگیر تولید کنید. ممکن است برایتان سوال پیش بیاید که آخر چطور می شود این کار را کرد؟ نگران نباشید ، در ادامه ما این مطلب را بصورت جامع برایتان شرح و توضیح میدهیم.راهکارهایی که ما می خواهیم به شما آموزش دهیم در قالب یک تکنیک طراز اول است که در ادامه با آن آشنا خواهید شد.', '/images/weblog-img/7.jpg', '2020-03-31 19:30:00', NULL),
+(2, 4, 'تکنیک طلایی آسمان خراش', 'یکی از راه های برند سازی در اینترنت تولید محتوا است. اما طبیعی است که هر محتوایی نمی تواند برای ما بازار یابی کند و ما باید همیشه محتواهای جذاب و درجه یکی داشته باشیم. اما داشتن محتوای درجه یک و جذاب ، آیا به تعدد پست هایی که در سایت خودمان میگذاریم مربوط است ؟\r\n\r\nاز نگاه تکنیک آسمان خراش ، هیچ نیازی به این نیست که ما محتواهای خودمان را هر روز با سیلی جدید از مفاهیم روبرو کنیم. بلکه فقط گاهی نیاز است به جای پرداختن به چند مقاله ، روی یک مقاله کار کنیم و آن را بالا ببریم. اگر دقت کرده باشید ، اسم آسمان خراش نیز برای همین روی این تکنیک گذاشته شده است.\r\n\r\nاگر ما بخواهیم مدام محتوا تولید کنیم و محتواهای خودمان را مورد بررسی کیفی قرار ندهیم ، درست مثل این می ماند که هزار خانه ی یک طبقه ای ساخته ایم ، در حالی که ما با ساخت تنها ۶۰ تا ۷۰ واحد روی هم ، می توانیم یک آسمان خراش داشته باشیم و صد البته از هر کجای شهر هم که به این آسمان خراش نگاه شود ، این آسمان خراش پیداست.\r\n\r\nدر واقع تکنیک می خواهد این نکته را به ما بگوید که برای رسیدن به یک رتبه خوب و دیده شدن در همه جای اینترنت نیاز است که شما بر روی یک محتوا ،تا می توانید وقت بگذارید و تمام شکاف های آن را بگیرید تا که یک نتیجه ی خوب حاصل کنید.', '/images/weblog-img/4.jpg', '2020-04-01 19:30:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -647,6 +715,13 @@ ALTER TABLE `genders`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `jobs`
+--
+ALTER TABLE `jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `jobs_queue_index` (`queue`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -677,6 +752,18 @@ ALTER TABLE `permissions`
 ALTER TABLE `permission_role`
   ADD KEY `fk_permission_role_roles` (`role_id`),
   ADD KEY `fk_permission_role_permissions` (`permission_id`);
+
+--
+-- Indexes for table `photos`
+--
+ALTER TABLE `photos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `producers`
@@ -783,7 +870,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `factors`
 --
@@ -793,7 +880,7 @@ ALTER TABLE `factors`
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `files`
 --
@@ -805,10 +892,15 @@ ALTER TABLE `files`
 ALTER TABLE `genders`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT for table `jobs`
+--
+ALTER TABLE `jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `payments`
 --
@@ -819,6 +911,16 @@ ALTER TABLE `payments`
 --
 ALTER TABLE `permissions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `photos`
+--
+ALTER TABLE `photos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `producers`
 --
