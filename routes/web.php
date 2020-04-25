@@ -1,10 +1,5 @@
 <?php
 
-
-// use Illuminate\Support\Facades\Mail;
-// use App\Mail\SendEmailMailable;
-// use Illuminate\Routing\Route;
-// use Illuminate\Contracts\Bus\Dispatcher;
 /*
 
 |--------------------------------------------------------------------------
@@ -17,27 +12,7 @@
 |
 */
 
-
-
-
-
-
-
-
-
-
-
 //=====================Start Frontend Controllers==================
-
-Route::get('/sendmail',function(){
-
-  Mail::to('yaghubi1398@gmail.com')->send(new SendEmailMailable());
-  // $this->view('emails.email',['title'=>'سلام','content'=>'خوش امدید']);
-  // dispatch(new App\Jobs\SendEmailJob);
-  return "your email send";
-});
-
-
 
 Route::get('/', 'IndexController@index')->name('index');
 Auth::routes();
@@ -46,10 +21,13 @@ Auth::routes();
 Route::group(['middleware'=>['auth','UserLevel']],function(){
   Route::get('/home', 'HomeController@index')->name('home');
 });
+
 Route::resource('cat', 'CategoryController');
 Route::resource('pro', 'ProductController');
 Route::resource('commen','CommentController');  
 Route::resource('contact','ContactController');  
+Route::resource('post','PostController');  
+
 
 
 //Ajax Routes Start
